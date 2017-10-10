@@ -1,0 +1,10 @@
+type: object
+title: Operator
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  physical:
+    description: name of the Mno the operator uses
+    type: string

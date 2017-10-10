@@ -106,3 +106,5 @@ CreatePosCustomer:
   $ref: ./point_of_sale/create_customer.yaml
 Event:
   $ref: ./events/event.yaml
+Operator:
+  $ref: ./telco/operator.yaml

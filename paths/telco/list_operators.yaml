@@ -1,0 +1,13 @@
+get:
+  tags:
+    - Telco
+  summary: List operators
+  produces:
+    - application/json
+  responses:
+    200:
+      description: Operator listing
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/Operator'
