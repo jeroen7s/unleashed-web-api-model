@@ -4,7 +4,6 @@ required:
   - id
   - method
   - payment_provider
-  - mandate_name
   - label
 properties:
   id:
