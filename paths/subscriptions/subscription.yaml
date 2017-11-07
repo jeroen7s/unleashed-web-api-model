@@ -35,6 +35,13 @@ delete:
       type: string
       description: Subscription to cancel.
       required: true
+    - name: password
+      in: body
+      description: Verification required to cancel subscription.
+      required: false
+      schema:
+        $ref: '#/definitions/PasswordCheck'
+
   responses:
     204:
       description: Doesn't return anything except a 204 to indicate no content.

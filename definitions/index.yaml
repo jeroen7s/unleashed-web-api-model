@@ -32,6 +32,8 @@ PasswordResetRequest:
   $ref: ./password/reset_request.yaml
 PasswordResetPerform:
   $ref: ./password/reset_perform.yaml
+PasswordCheck:
+  $ref: ./password/validate.yaml
 PrepaidRegistration:
   $ref: ./customers/prepaid_registration.yaml
 Product:

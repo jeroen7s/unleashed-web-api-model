@@ -1,0 +1,8 @@
+type: object
+title: Check password
+required:
+  - password
+properties:
+  password:
+    type: string
+    description: "current password"

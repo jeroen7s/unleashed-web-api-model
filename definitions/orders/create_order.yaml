@@ -16,3 +16,6 @@ properties:
   subscription_id:
     type: string
     description: ID of the subscription that this order is for
+  password:
+    type: string
+    description: password required for performing migrations
