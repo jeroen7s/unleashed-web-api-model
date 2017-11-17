@@ -1,5 +1,7 @@
-/oauth2/token:
-  $ref: ./authorization/token.yaml
+/oauth2/token/:
+  $ref: ./authentication/access_token.yaml
+/oauth2/revoke_token/:
+  $ref: ./authentication/revoke_token.yaml
 /customers:
   $ref: ./customers/create.yaml
 /customers/verify:

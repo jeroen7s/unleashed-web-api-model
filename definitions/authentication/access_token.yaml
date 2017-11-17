@@ -1,0 +1,26 @@
+type: object
+title: OAuth access token
+description: The parameters you receive upon succesful authentication.
+required:
+ - access_token
+ - token_type
+ - scope
+ - refresh_token
+ - expires_in
+properties:
+  access_token:
+    type: string
+    description: "The access token you must use in your Authorization header for requests that require it."
+  token_type:
+    type: string
+    description: "Which type of access token is this. This will be Bearer, meaning: if you have this access token you are granted access"
+  scope:
+    type: string
+    description: "Which scope does this access token allow? Amongst other it can have the following values: 'read', 'write' or 'read/write'"
+  refresh_token:
+    type: string
+    description: "The refresh token that can be used to issue a new access token via a refresh token grant"
+  expires_in:
+    type: string
+    format: number
+    description: "Indicates in how many seconds the access token will expire."

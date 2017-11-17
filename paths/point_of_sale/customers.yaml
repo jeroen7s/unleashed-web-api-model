@@ -11,7 +11,7 @@ post:
   - application/json
   parameters:
     - $ref: "#/parameters/authorization"
-    - $ref: "#/parameters/x-pos-agent"
+    - $ref: "#/parameters/X-Pos-Agent"
     - name: POS Customer object
       in: body
       description: Customer data

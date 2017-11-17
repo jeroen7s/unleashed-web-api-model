@@ -1,0 +1,24 @@
+post:
+  tags:
+  - Authentication
+  summary: "Revoke an OAuth2 access token"
+  description: |
+    If a user wants to invalidates an access token he has e.g. by logging out. It can be revoked
+  consumes:
+  - application/x-www-form-urlencoded
+  produces:
+  - application/json
+  parameters:
+    - name: OAuth2 revoke parameters
+      in: body
+      description: "Contains the parameters needed to revoke an token (access or refresh)"
+      required: true
+      schema:
+        $ref: '#/definitions/RevokeToken'
+  responses:
+    200:
+      description: no data is returned
+    401:
+      description: unauthorized
+      schema:
+        $ref: '#/definitions/Status'

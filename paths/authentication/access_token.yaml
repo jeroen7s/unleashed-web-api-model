@@ -1,0 +1,78 @@
+post:
+  tags:
+  - Authentication
+  summary: "Request an OAuth2 access token"
+  description: |
+    Most endpoints in UWA require that you authenticate the user before hand. This is done by passing credentials that allow uwa to check if these credentials are
+    genuine and authentication is successful. In that case you receive an access token that must be used where authorization is required to access the resources of the user.
+
+    Before requesting an access token you need a client that identifies your application that will act on behalf of the user. Such a client needs to be created in the admin panel.
+    It will have an id and a secret that need to be used in all authentication requests. Consult the "getting started" chapter
+
+    Additionally a client is coupled to one of our tree brands limiting the access to only the endpoints of that specific brand.
+
+    An access token will only be valid for a certain amount of time; given by the `expires_in` attribute. So it needs to be refreshed from time to time. To avoid
+    to request the user for his credentials each time, a refresh token can be used. You receive a refresh token with each access token.
+
+    This means you have two way of acquiring an access token:
+
+    - via user credentials (password grant)
+
+    - via a refresh token (refresh_token grant)
+
+    You can indicate which method of authentication you will use by specifing the grant type. Depending on the grant type the parameters you must give differ.
+
+    For password grants, you must give a valid `username` and `password`
+    For refresh token grants, you must give specify `refresh_token`
+
+    Please note that in both case the data should be posted as `application/x-www-form-urlencoded` and you should give the client_id and optionally client_secret
+
+    E.g. password grant
+
+    ```
+    curl -X post --data "grant_type=password&username=<username>&password=<password>&client_id=<client_id>&client_secret=<client_secret>" https://api.unleashed.be/jim/oauth2/token/
+
+    <username> : the username of the end user. This can be a uid (Stievie), phone number (Jim), email (Mobile Vikings), these are the major cases per brand
+    <password> : the password of the end user.
+    <client_id> : the id of the client. You receive this information of Unleashed
+    <client_secret> : the id of the client. You receive this information of Unleashed
+
+    ```
+
+    E.g. refresh token grant
+
+    ```
+    curl -X post --data "grant_type=refresh_token&refresh_token=<refresh_token>&client_id=<client_id>&client_secret=<client_secret>" https://api.unleashed.be/jim/oauth2/token/
+
+    <refresh_token> : the refresh token you received together with the access token
+    <client_id> : the id of the client. You receive this information of Unleashed
+    <client_secret> : the id of the client. You receive this information of Unleashed
+
+    ```
+
+    Remark: upon password reset all tokens (access, refresh and grant) are invalidated. If you want to logout you should revoke the refresh and access token
+  consumes:
+  - application/x-www-form-urlencoded
+  produces:
+  - application/json
+  parameters:
+    - name: Content-Type
+      in: header
+      description: "Indicates how the data is formatted, only application/x-www-form-urlencoded is accepted"
+      required: true
+      type: string
+    - name: OAuth2 request parameters
+      in: body
+      description: "Contains the parameters needed to acquire an access token"
+      required: true
+      schema:
+        $ref: '#/definitions/AccessTokenRequest'
+  responses:
+    200:
+      description: access info
+      schema:
+        $ref: '#/definitions/AccessToken'
+    401:
+      description: unauthorized
+      schema:
+        $ref: '#/definitions/Status'

@@ -4,10 +4,12 @@ Descriptions:
   $ref: ./general/descriptions.yaml
 Rates:
   $ref: ./general/rates.yaml
-Token:
-  $ref: ./authorization/token.yaml
-Auth:
-  $ref: ./authorization/auth.yaml
+AccessToken:
+  $ref: ./authentication/access_token.yaml
+RevokeToken:
+  $ref: ./authentication/revoke_token.yaml
+AccessTokenRequest:
+  $ref: ./authentication/access_token_request.yaml
 Address:
   $ref: ./customers/address.yaml
 Company:

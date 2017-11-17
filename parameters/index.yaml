@@ -53,8 +53,8 @@ until_date:
       required: false
       type: string
       format: date
-x-pos-agent:
-      name: x-pos-agent
+X-Pos-Agent:
+      name: X-Pos-Agent
       in: header
       description: the agent handling the request from the end user
       required: true

@@ -1,0 +1,17 @@
+type: object
+title: Token revoke details
+description: The parameters you need to give to authenticate.
+required:
+  - client_id
+  - client_secret
+  - token
+properties:
+  client_id:
+    description: "The id of the client you have to communicate with UWA"
+    type: string
+  client_secret:
+    description: "The secret of the client you have to communicate with UWA"
+    type: string
+  token:
+    description: "The token you want to revoke."
+    type: string
