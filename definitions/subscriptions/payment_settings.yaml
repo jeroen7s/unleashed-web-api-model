@@ -1,9 +1,0 @@
-type: object
-title: Payment settings
-properties:
-  mandate:
-    description: |
-      mandate to use for automatic payment.
-    $ref: '#/definitions/Mandate'
-  auto_topup:
-    $ref: '#/definitions/AutoTopup'

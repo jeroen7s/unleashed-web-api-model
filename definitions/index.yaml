@@ -76,12 +76,8 @@ SimSwapRequest:
   $ref: ./telco/sim_swap_request.yaml
 PaymentRequest:
   $ref: ./finance/payment_request.yaml
-PaymentSettings:
-  $ref: ./subscriptions/payment_settings.yaml
 InvoicingSettings:
   $ref: ./subscriptions/invoicing_settings.yaml
-PaymentSettingsUpdate:
-  $ref: ./subscriptions/update_payment_settings.yaml
 VoicemailSettings:
   $ref: ./subscriptions/voicemail_settings.yaml
 Usage:
